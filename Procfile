@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* Main server src/main/resources/conf.yml
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.dreamedapps.bulletins.BulletinApplication server src/main/resources/conf.yml
