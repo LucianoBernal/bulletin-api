@@ -1,1 +1,1 @@
-web: java -jar target/classes:com/dreamedapps/bulletins/BulletinApplication.class server src/main/resources/conf.yml
+web: java $JAVA_OPTS -jar target/bulletin-api-1.0-SNAPSHOT.jar server src/main/resources/conf.yml
