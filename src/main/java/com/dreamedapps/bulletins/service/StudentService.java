@@ -1,13 +1,13 @@
 package com.dreamedapps.bulletins.service;
 
 import com.dreamedapps.bulletins.dto.PostDTO;
+import com.dreamedapps.bulletins.dto.StudentDTO;
 import com.dreamedapps.bulletins.dto.StudentEntryDTO;
 import com.dreamedapps.bulletins.dto.StudentNewsletterDTO;
-import com.dreamedapps.bulletins.dto.StudentDTO;
+import com.dreamedapps.bulletins.model.Post;
 import com.dreamedapps.bulletins.model.Student;
 import com.dreamedapps.bulletins.repository.BulletinRepository;
 
-import java.util.Date;
 import java.util.List;
 
 public class StudentService {
@@ -59,11 +59,23 @@ public class StudentService {
         return studentDTO;
     }
 
-    public StudentNewsletterDTO getNewsletter(long studentId) {
-        PostDTO malanota = new PostDTO(1l, "malanota", "Profe Forro", new Date().getTime());
+    public StudentNewsletterDTO getStudentNewsletter(long studentId) {
+        List<Post> studentPosts = repository.getStudentNewsletter(studentId);
         StudentNewsletterDTO newsletter = new StudentNewsletterDTO();
-        newsletter.addPost(malanota);
+        newsletter.addPosts(studentPosts);
         return newsletter;
-        //TODO: must implement
+    }
+
+    public PostDTO postCommunication(long studentId,Post post) {
+        Post addedPost = repository.postCommunication(studentId,post);
+        return createPostDTOfromPost(addedPost);
+    }
+
+    private PostDTO createPostDTOfromPost(Post post) {
+        long id = post.getId();
+        long date = post.getDate();
+        String postInfo = post.getPost();
+        String sender = post.getSender();
+        return new PostDTO(id,postInfo,sender,date);
     }
 }
