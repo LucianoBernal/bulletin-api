@@ -7,7 +7,7 @@ import com.wordnik.swagger.annotations.*;
 
 import javax.ws.rs.*;
 
-@Api(value = "/students", tags = "Students")
+@Api(value = "/students", tags = "Student")
 @Path("/create_student")
 @Produces("application/json")
 public class StudentCreationResource {
@@ -22,7 +22,8 @@ public class StudentCreationResource {
     @ApiOperation(value = "Creates a student")
     @ApiResponses(value = { @ApiResponse(code = 400, message = "Client error"),
             @ApiResponse(code = 500, message = "Server error")})
-    public StudentDTO getStudent(@ApiParam(value = "Student information", required = true) StudentEntryDTO studentDTO)
+    public StudentDTO createStudent(
+            @ApiParam(value = "Creates a Student", required = true) StudentEntryDTO studentDTO)
     {
         return studentService.createStudent(studentDTO);
     }

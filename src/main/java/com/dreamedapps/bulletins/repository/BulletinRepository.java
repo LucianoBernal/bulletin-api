@@ -1,6 +1,7 @@
 package com.dreamedapps.bulletins.repository;
 
 import com.dreamedapps.bulletins.model.Post;
+import com.dreamedapps.bulletins.model.School;
 import com.dreamedapps.bulletins.model.Student;
 
 import java.util.ArrayList;
@@ -12,11 +13,13 @@ public class BulletinRepository {
     private List<Student> allStudents;
     private Map<Long,List<Post>> allNewsletters;
     private Long postIds;
+    private long lastSchoolId;
 
     public BulletinRepository() {
         this.allStudents = new ArrayList<>();
         this.allNewsletters = new HashMap<>();
         this.postIds = 0l;
+        this.lastSchoolId = 0l;
     }
 
     public Student getStudentInfo(long studentId) throws RuntimeException {
@@ -52,5 +55,10 @@ public class BulletinRepository {
 
     private long generatePostId() {
         return postIds+1;
+    }
+
+    public School createSchool(String name) {
+        long id = lastSchoolId +=1;
+        return new School(id,name);
     }
 }
