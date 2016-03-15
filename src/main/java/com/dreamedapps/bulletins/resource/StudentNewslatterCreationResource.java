@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-@Api(value = "/students", tags = "Students")
+@Api(value = "/students", tags = "Student")
 @Path("/create_post")
 @Produces("application/json")
 public class StudentNewslatterCreationResource {

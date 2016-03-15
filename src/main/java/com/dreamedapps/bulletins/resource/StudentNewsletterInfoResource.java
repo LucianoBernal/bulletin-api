@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-@Api(value = "/studets", tags = "Students")
+@Api(value = "/studets", tags = "Student")
 @Path("/newsletter")
 @Produces("application/json")
 public class StudentNewsletterInfoResource {

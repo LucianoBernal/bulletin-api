@@ -6,7 +6,7 @@ import com.wordnik.swagger.annotations.*;
 
 import javax.ws.rs.*;
 
-@Api(value = "/students", tags = "Students")
+@Api(value = "/students", tags = "Student")
 @Path("/student_info")
 @Produces("application/json")
 public class StudentInfoResource {
