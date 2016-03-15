@@ -1,37 +1,56 @@
 package com.dreamedapps.bulletins.repository;
 
-import com.dreamedapps.bulletins.dto.StudentDTO;
-import com.dreamedapps.bulletins.exception.StudentDoesntExist;
+import com.dreamedapps.bulletins.model.Post;
 import com.dreamedapps.bulletins.model.Student;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BulletinRepository {
     private List<Student> allStudents;
+    private Map<Long,List<Post>> allNewsletters;
+    private Long postIds;
 
     public BulletinRepository() {
         this.allStudents = new ArrayList<>();
-
-        addAStudentToStudentsList();
+        this.allNewsletters = new HashMap<>();
+        this.postIds = 0l;
     }
 
-    public Student getStudentInfo(long studentId) throws RuntimeException{
-            return allStudents.stream()
-                    .filter(student -> student.getId() == studentId)
-                    .findFirst()
-                    .orElseThrow(StudentDoesntExist::new);
-    }
-
-    private void addAStudentToStudentsList() {
-        long id = 1l;
-        Student stud = new Student(id,"a","a","a","a");
-        this.allStudents.add(stud);
+    public Student getStudentInfo(long studentId) throws RuntimeException {
+        return allStudents.stream()
+                .filter(student -> student.getId() == studentId)
+                .findFirst()
+                .orElseThrow(RuntimeException::new);
     }
 
     public Student createStudent(Student student) {
-        //long id = dao.createStudent();
-        student.setId(2l);
+        allStudents.add(student);
         return student;
+    }
+
+    public List<Post> getStudentNewsletter(long studentId) {
+        if(allNewsletters.containsKey(studentId)){
+            return allNewsletters.get(studentId);
+        }
+        return new ArrayList<>();
+    }
+
+    public Post postCommunication(long studentId, Post post) {
+        post.setId(generatePostId());
+        if(allNewsletters.containsKey(studentId)) {
+            allNewsletters.get(studentId).add(post);
+        } else {
+            List<Post> posts = new ArrayList<>();
+            posts.add(post);
+            allNewsletters.put(studentId,posts);
+        }
+        return post;
+    }
+
+    private long generatePostId() {
+        return postIds+1;
     }
 }

@@ -4,7 +4,8 @@ import com.dreamedapps.bulletins.dto.AppInfoDTO;
 import com.dreamedapps.bulletins.repository.BulletinRepository;
 import com.dreamedapps.bulletins.resource.StudentCreationResource;
 import com.dreamedapps.bulletins.resource.StudentInfoResource;
-import com.dreamedapps.bulletins.resource.StudentNewsletterResource;
+import com.dreamedapps.bulletins.resource.StudentNewslatterCreationResource;
+import com.dreamedapps.bulletins.resource.StudentNewsletterInfoResource;
 import com.dreamedapps.bulletins.service.StudentService;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
@@ -24,7 +25,8 @@ public class BulletinApplication extends Application<BulletinAppConfiguration>{
         StudentService studentService = new StudentService(bulletinRepository);
         environment.jersey().register(new StudentInfoResource(studentService));
         environment.jersey().register(new StudentCreationResource(studentService));
-        environment.jersey().register(new StudentNewsletterResource(studentService));
+        environment.jersey().register(new StudentNewsletterInfoResource(studentService));
+        environment.jersey().register(new StudentNewslatterCreationResource(studentService));
     }
 
     @Override
