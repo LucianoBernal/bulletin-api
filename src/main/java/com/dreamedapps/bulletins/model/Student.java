@@ -17,13 +17,6 @@ public class Student {
         this.course = course;
     }
 
-    public Student(String name, String school, String grade, String course) {
-        this.name = name;
-        this.school = school;
-        this.grade = grade;
-        this.course = course;
-    }
-
     public void setId(long id) {
         this.id = id;
     }

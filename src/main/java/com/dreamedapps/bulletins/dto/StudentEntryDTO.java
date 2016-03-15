@@ -5,6 +5,7 @@ import com.wordnik.swagger.annotations.ApiModel;
 import com.wordnik.swagger.annotations.ApiModelProperty;
 
 public class StudentEntryDTO {
+	@ApiModelProperty(required = true) @JsonProperty("id") private long id;
 
 	@ApiModelProperty(required = true) @JsonProperty("name") private String name;
 
@@ -22,7 +23,8 @@ public class StudentEntryDTO {
 		//FOR JACKSON DESERIALIZATION
 	}
 
-	public StudentEntryDTO(String course, String grade, String moreInfo, String name, String school, String surname) {
+	public StudentEntryDTO(long id, String course, String grade, String moreInfo, String name, String school, String surname) {
+		this.id = id;
 		this.course = course;
 		this.grade = grade;
 		this.moreInfo = moreInfo;
@@ -45,6 +47,10 @@ public class StudentEntryDTO {
 
 	public String getName() {
 		return name;
+	}
+
+	public long getId() {
+		return id;
 	}
 
 	public String getSchool() {

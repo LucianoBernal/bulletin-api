@@ -37,8 +37,9 @@ public class StudentService {
         String name = studentEntryDTO.getName();
         String school = studentEntryDTO.getSchool();
         String surname = studentEntryDTO.getSurname();
+        long id = studentEntryDTO.getId();
 
-        Student student = new Student(name, school, grade, course);
+        Student student = new Student(id, name, school, grade, course);
         student.setSurname(surname);
         student.setMoreProfileInfo(moreInfo);
         return student;
