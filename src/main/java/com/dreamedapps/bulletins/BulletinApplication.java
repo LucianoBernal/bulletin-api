@@ -1,7 +1,7 @@
 package com.dreamedapps.bulletins;
 
 import com.dreamedapps.bulletins.dto.AppInfoDTO;
-import com.dreamedapps.bulletins.repository.BulletinRepository;
+import com.dreamedapps.bulletins.repository.MemoryBulletinRepository;
 import com.dreamedapps.bulletins.resource.*;
 import com.dreamedapps.bulletins.service.AdminService;
 import com.dreamedapps.bulletins.service.StudentService;
@@ -19,7 +19,7 @@ public class BulletinApplication extends Application<BulletinAppConfiguration>{
 
     @Override
     public void run(BulletinAppConfiguration appConfig, Environment environment) throws Exception {
-        BulletinRepository bulletinRepository = new BulletinRepository();
+        MemoryBulletinRepository bulletinRepository = new MemoryBulletinRepository();
         StudentService studentService = new StudentService(bulletinRepository);
         AdminService adminService = new AdminService(bulletinRepository);
         environment.jersey().register(new StudentInfoResource(studentService));

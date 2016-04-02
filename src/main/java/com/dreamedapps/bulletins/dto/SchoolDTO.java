@@ -5,25 +5,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class SchoolDTO {
-	@JsonProperty("id")
-	private long id;
+	@JsonProperty("code")
+	private String code;
 
 	@JsonProperty("name")
 	private String name;
 
+	@JsonProperty("grades")
 	private List<GradesDTO> grades;
 
-	public SchoolDTO(long id, String name) {
-		this.id = id;
+	public SchoolDTO(String code, String name) {
+		this.code = code;
 		this.name = name;
 	}
 
-	public void setGrades(List<GradesDTO> grades) {
-		this.grades = grades;
-	}
-
-	public long getId() {
-		return id;
+	public String getCode() {
+		return code;
 	}
 
 	public String getName() {

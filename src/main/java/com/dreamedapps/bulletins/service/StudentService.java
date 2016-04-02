@@ -6,14 +6,14 @@ import com.dreamedapps.bulletins.dto.StudentEntryDTO;
 import com.dreamedapps.bulletins.dto.StudentNewsletterDTO;
 import com.dreamedapps.bulletins.model.Post;
 import com.dreamedapps.bulletins.model.Student;
-import com.dreamedapps.bulletins.repository.BulletinRepository;
+import com.dreamedapps.bulletins.repository.MemoryBulletinRepository;
 
 import java.util.List;
 
 public class StudentService {
-    private BulletinRepository repository;
+    private MemoryBulletinRepository repository;
 
-    public StudentService(BulletinRepository repository) {
+    public StudentService(MemoryBulletinRepository repository) {
         this.repository = repository;
     }
 

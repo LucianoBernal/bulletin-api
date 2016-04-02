@@ -1,20 +1,21 @@
 package com.dreamedapps.bulletins.model;
 
 public class School {
-	private long id;
+	private String code;
 	private String name;
 
-	public School(long id, String name) {
-		this.id = id;
+	public School(String code, String name) {
+		this.code = code;
 		this.name = name;
 	}
 
-	public long getId() {
-		return id;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public String getCode() {
+
+		return code;
 	}
 
 	public String getName() {

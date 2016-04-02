@@ -6,11 +6,21 @@ public class SchoolEntryDTO {
 	@JsonProperty("name")
 	private String name;
 
-	public SchoolEntryDTO(String name) {
+	@JsonProperty("code")
+	private String code;
+
+	public SchoolEntryDTO(String name, String code) {
 		this.name = name;
+		this.code = code;
 	}
+
+	public SchoolEntryDTO() {}
 
 	public String getName() {
 		return name;
+	}
+
+	public String getCode() {
+		return code;
 	}
 }
