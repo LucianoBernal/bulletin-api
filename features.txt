@@ -1,0 +1,26 @@
+Student Expansion
+
+Boletín
+Notas Trimestrales, Parciales, Todas las notas
+Firma digital de padres
+Registro de visto y firma
+Aviso por mail de carga de notas
+Estadísticas gráficas de rendimiento general
+Cronograma
+Generado por alumno, validado por admin
+Impresión
+Alarma (?android)
+Faltas
+Todos los días
+Aviso de falta
+Registro de visto y firma
+Firma digital de padres
+Chequeo presentismo con tablets(?)
+Comunicaciones
+Observaciones/Felicitaciones (?Puntos)
+Excursiones (preview Google Maps)
+Resaltar comunicaciones importantes
+Firma digital
+Aviso por mail
+Recomendador de carreras(?)
+Carga de tareas/files(?)
