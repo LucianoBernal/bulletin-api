@@ -11,6 +11,8 @@ public class Grades {
 		return name;
 	}
 
+	public int sarasa(){return 1;}
+
 	public void setName(String name) {
 		this.name = name;
 	}

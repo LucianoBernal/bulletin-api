@@ -17,7 +17,6 @@ public class School {
 	}
 
 	public String getCode() {
-
 		return code;
 	}
 
